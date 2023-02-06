@@ -1,0 +1,50 @@
+<html>
+<head>
+  <title>font</title>
+  <style>
+  .grid-container {
+    width: 100%;
+    display: grid;
+    margin: auto;
+    grid-template-columns: repeat(8,1fr);
+  }
+  
+  .draw-area {
+    width: 25%;
+    display: grid;
+    margin: auto;
+    grid-template-columns: repeat(8,1fr);
+  }
+
+  .grid-item{
+    border: 1px solid blue;
+    background-color: black;
+    padding: 30px;
+    display: grid;
+    /*place-items: center*/;
+  }
+  </style>
+</head>
+<body style="background-color:blue;">
+  <div class="draw-area" id="parent">
+  </div>
+
+  <script>
+    function flipColor(e) {
+      if (e.target.style.backgroundColor == "" || e.target.style.backgroundColor == "black") {
+        e.target.style.backgroundColor = "white"
+      } else {
+        e.target.style.backgroundColor = "black"
+      }
+    }
+
+    for (let i=0; i<8*16; i++) {
+      const gridItem = document.createElement("div")
+      gridItem.className = "grid-item"
+      gridItem.onclick = flipColor
+      document.getElementById("parent").appendChild(gridItem)
+    }
+      
+  </script>
+</body>
+</html>
